@@ -250,7 +250,7 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Jump()
 	{
-		rigidBody2D.velocity = new Vector2(rigidBody2D.velocity.x, jumpForce);
+		rigidBody2D.linearVelocity = new Vector2(rigidBody2D.linearVelocity.x, jumpForce);
 	}
 
 	private IEnumerator JumpDown()
@@ -263,7 +263,7 @@ public class PlayerMovement : MonoBehaviour
 	private void JumpAside()
 	{
         float horizontal = Input.GetAxisRaw("Horizontal");
-		rigidBody2D.velocity = horizontal > 0 ? new Vector2(jumpAsideForceX, jumpAsideForceY) : new Vector2(-jumpAsideForceX, jumpAsideForceY);
+		rigidBody2D.linearVelocity = horizontal > 0 ? new Vector2(jumpAsideForceX, jumpAsideForceY) : new Vector2(-jumpAsideForceX, jumpAsideForceY);
     }
 
     private void MovePlayerPosToMiddleOfLadder()
@@ -283,7 +283,7 @@ public class PlayerMovement : MonoBehaviour
 
 	private void AdjustRigidBodyToClimb()
 	{
-		rigidBody2D.velocity = Vector2.zero;
+		rigidBody2D.linearVelocity = Vector2.zero;
 		rigidBody2D.bodyType = RigidbodyType2D.Kinematic;
 	}
 
